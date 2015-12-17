@@ -24,9 +24,15 @@ You could also install it globally by running:
 
 ## Usage
 
-Just run it before your build processes start, through the bin available at `./node_modules/bin/ahem`.
+In your project's `package.json`, set the version of Node it supports via the `engines` property:
 
-Or `require` it into your Javascript and pass a directory as an argument:
+```
+"engines": {
+    "node": "0.12.7"
+}
+```
+
+Then run it before your build processes start, through the bin available at `./node_modules/bin/ahem`. Or `require` it into your Javascript and pass a directory as an argument:
 
 ```
 var ahem = require('ahem');
@@ -43,3 +49,11 @@ system('./node_modules/.bin/ahem') or exit(1)
 # Carry on building stuff...
 ```
 
+In an NPM `packages.json`:
+```
+"scripts": {
+    "start": "ahem && haw serve",
+}
+```
+
+This errors explosively - if you have a better way, let me know!
